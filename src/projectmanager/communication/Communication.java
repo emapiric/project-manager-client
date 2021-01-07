@@ -59,7 +59,7 @@ public class Communication {
     }
     
     public User getUserById(int id) throws Exception {
-        Request request = new Request(Operation.GET_USER_BY_ID,null);
+        Request request = new Request(Operation.GET_USER_BY_ID,id);
         sender.send(request);
         Response response = (Response) receiver.receive();
         if (response.getException() == null) {
@@ -109,7 +109,7 @@ public class Communication {
 
 
     public List<ProjectTask> getAllProjectTasks(Project project) throws Exception{
-        Request request = new Request(Operation.GET_ALL_PROJECT_TASKS,null);
+        Request request = new Request(Operation.GET_ALL_PROJECT_TASKS,project);
         sender.send(request);
         Response response = (Response) receiver.receive();
         if (response.getException() == null) {
@@ -159,7 +159,7 @@ public class Communication {
     }
     
     public Task getTaskById(int id) throws Exception{
-        Request request = new Request(Operation.GET_TASK_BY_ID,null);
+        Request request = new Request(Operation.GET_TASK_BY_ID,id);
         sender.send(request);
         Response response = (Response) receiver.receive();
         if (response.getException() == null) {

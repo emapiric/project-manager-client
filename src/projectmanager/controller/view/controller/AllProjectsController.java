@@ -19,6 +19,7 @@ import projectmanager.controller.view.coordinator.MainCoordinator;
 import projectmanager.controller.view.form.FrmAllProjects;
 import projectmanager.controller.view.form.component.table.ProjectTableModel;
 import projectmanager.domain.Project;
+import projectmanager.domain.User;
 
 /**
  *
@@ -64,6 +65,11 @@ public class AllProjectsController {
                 int row = frmAllProjects.getTblProjects().getSelectedRow();
                 if (row >= 0) {
                     Project project = ((ProjectTableModel) frmAllProjects.getTblProjects().getModel()).getProjectAt(row);
+                    User currentUser = (User) MainCoordinator.getInstance().getParam(Constants.CURRENT_USER);
+                    if (currentUser.getId() != project.getOwner().getId()) {
+                        JOptionPane.showMessageDialog(frmAllProjects, "You don't have permission to delete this project", "PROJECT DETAILS", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
                     try {
                         Communication.getInstance().deleteProject(project);
                         JOptionPane.showMessageDialog(frmAllProjects, "Project deleted successfully!\n", "Delete project", JOptionPane.INFORMATION_MESSAGE);

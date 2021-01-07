@@ -20,6 +20,7 @@ import projectmanager.controller.view.form.FrmAllProjectTasks;
 import projectmanager.controller.view.form.component.table.ProjectTaskTableModel;
 import projectmanager.domain.Project;
 import projectmanager.domain.ProjectTask;
+import projectmanager.domain.User;
 
 /**
  *
@@ -83,6 +84,7 @@ public class AllProjectTasksController {
     public void openForm() {
         frmAllProjectTasks.setLocationRelativeTo(null);
         prepareView();
+        authorize();
         frmAllProjectTasks.setVisible(true);
     }
     
@@ -107,6 +109,15 @@ public class AllProjectTasksController {
     public FrmAllProjectTasks getFrmAllTasks() {
         return frmAllProjectTasks;
     }
-    
+
+    private void authorize() {
+        Project project = (Project) MainCoordinator.getInstance().getParam(Constants.PARAM_PROJECT);
+        User currentUser = (User) MainCoordinator.getInstance().getParam(Constants.CURRENT_USER);
+        if (currentUser.getId() != project.getOwner().getId() && !project.getAssignees().contains(currentUser)) {
+            frmAllProjectTasks.getBtnAdd().setEnabled(false);
+            frmAllProjectTasks.getBtnRemove().setEnabled(false);
+        }
+    }
+
     
 }

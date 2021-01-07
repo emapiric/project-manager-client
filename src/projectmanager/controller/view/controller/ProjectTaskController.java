@@ -136,7 +136,8 @@ public class ProjectTaskController {
     
     private void fillCbAssignee() {
         try {
-            frmProjectTask.getInputAssignee().getCb().setModel(new DefaultComboBoxModel<>(Communication.getInstance().getAllUsers().toArray()));
+            Project currentProject = (Project) MainCoordinator.getInstance().getParam(Constants.PARAM_PROJECT);
+            frmProjectTask.getInputAssignee().getCb().setModel(new DefaultComboBoxModel<>(currentProject.getAssignees().toArray()));
             frmProjectTask.getInputAssignee().getCb().setSelectedIndex(0);
             frmProjectTask.getInputAssignee().getCb().addItemListener(new ItemListener() {
                 @Override
