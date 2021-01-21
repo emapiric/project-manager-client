@@ -15,5 +15,6 @@ import projectmanager.controller.view.form.FrmLogin;
 public class Main {
     public static void main(String[] args) {
         MainCoordinator.getInstance().openLoginForm();
+       
     }
 }

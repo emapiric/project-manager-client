@@ -15,4 +15,5 @@ public class Constants {
     public static final String FORM_ALL_PROJECT="FORM_ALL_PROJECT";
     public static final String PARAM_PROJECT_TASK="PROJECT_TASK";
     public static final String FORM_ALL_PROJECT_TASKS="FORM_ALL_PROJECT_TASKS";
+    public static final String SERVER_CLOSED="Server socket closed";
 }

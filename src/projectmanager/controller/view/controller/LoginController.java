@@ -55,6 +55,8 @@ public class LoginController {
                     MainCoordinator.getInstance().openAllProjectsForm();
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(frmLogin, e.getMessage(), "Login error", JOptionPane.ERROR_MESSAGE);
+                    if (e.getMessage().equals(Constants.SERVER_CLOSED))
+                    System.exit(0);
                 }
             }
 

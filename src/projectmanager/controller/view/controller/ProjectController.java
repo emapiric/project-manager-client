@@ -72,6 +72,8 @@ public class ProjectController {
                 } catch (Exception ex) {
                     Logger.getLogger(FrmProject.class.getName()).log(Level.SEVERE, null, ex);
                     JOptionPane.showMessageDialog(frmProject, ex.getMessage());
+                    if (ex.getMessage().equals(Constants.SERVER_CLOSED))
+                        System.exit(0);
                 }
             }
         });
@@ -163,6 +165,8 @@ public class ProjectController {
             });
         } catch (Exception ex) {
             Logger.getLogger(ProjectTaskController.class.getName()).log(Level.SEVERE, null, ex);
+            if (ex.getMessage().equals(Constants.SERVER_CLOSED))
+                System.exit(0);
         }
     }
 

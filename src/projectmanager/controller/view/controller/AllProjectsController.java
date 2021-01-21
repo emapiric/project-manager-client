@@ -76,6 +76,8 @@ public class AllProjectsController {
                     } catch (Exception ex) {
                          JOptionPane.showMessageDialog(frmAllProjects, "Error deleting project!\n" + ex.getMessage(), "Delete project", JOptionPane.ERROR_MESSAGE);
                         Logger.getLogger(AllProjectsController.class.getName()).log(Level.SEVERE, null, ex);
+                        if (ex.getMessage().equals(Constants.SERVER_CLOSED))
+                        System.exit(0);
                     }
                 } else {
                     JOptionPane.showMessageDialog(frmAllProjects, "You must select a project", "PROJECT DETAILS", JOptionPane.ERROR_MESSAGE);
@@ -125,6 +127,8 @@ public class AllProjectsController {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(frmAllProjects, "Error: " + ex.getMessage(), "ERROR DETAILS", JOptionPane.ERROR_MESSAGE);
             Logger.getLogger(AllProjectsController.class.getName()).log(Level.SEVERE, null, ex);
+            if (ex.getMessage().equals(Constants.SERVER_CLOSED))
+                System.exit(0);
         }
     }
 

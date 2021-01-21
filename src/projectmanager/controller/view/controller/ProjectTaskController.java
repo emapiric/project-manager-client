@@ -68,6 +68,8 @@ public class ProjectTaskController {
                     frmProjectTask.dispose();
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(frmProjectTask, e.getMessage());
+                    if (e.getMessage().equals(Constants.SERVER_CLOSED))
+                        System.exit(0);
                 }
             }
         });
@@ -131,6 +133,8 @@ public class ProjectTaskController {
             });
         } catch (Exception ex) {
             Logger.getLogger(ProjectTaskController.class.getName()).log(Level.SEVERE, null, ex);
+            if (ex.getMessage().equals(Constants.SERVER_CLOSED))
+                System.exit(0);
         }
     }
     

@@ -66,6 +66,8 @@ public class AllProjectTasksController {
                         JOptionPane.showMessageDialog(frmAllProjectTasks, "Project task deleted successfully!\n", "Delete project task", JOptionPane.INFORMATION_MESSAGE);
                     }catch (Exception ex) {
                         JOptionPane.showMessageDialog(frmAllProjectTasks, "Error deleting task.", "PROJECT TASK DETAILS", JOptionPane.ERROR_MESSAGE);
+                        if (ex.getMessage().equals(Constants.SERVER_CLOSED))
+                            System.exit(0);
                     }
                 }
                 else {
@@ -97,6 +99,8 @@ public class AllProjectTasksController {
             frmAllProjectTasks.getTblTasks().setModel(pttm);
         } catch (Exception ex) {
             Logger.getLogger(AllProjectTasksController.class.getName()).log(Level.SEVERE, null, ex);
+            if (ex.getMessage().equals(Constants.SERVER_CLOSED))
+                System.exit(0);
         }
     }
 
