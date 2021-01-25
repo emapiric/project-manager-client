@@ -158,6 +158,15 @@ public class Communication {
         }
     }
 
+    public void logout() throws Exception {
+        Request request = new Request(Operation.LOGOUT, null);
+        sender.send(request);
+        Response response = (Response) receiver.receive();
+        if (response.getException() != null) {
+            throw response.getException();
+        }
+    }
+
     
     
 }

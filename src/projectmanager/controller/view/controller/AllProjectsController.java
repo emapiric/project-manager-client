@@ -34,6 +34,18 @@ public class AllProjectsController {
     }
     
     private void addActionListener() {
+        frmAllProjects.btnLogoutActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Communication.getInstance().logout();
+                    MainCoordinator.getInstance().openLoginForm();
+                    frmAllProjects.dispose();
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(frmAllProjects, ex.getMessage(), "User details", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
         frmAllProjects.jmiNewProjectActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

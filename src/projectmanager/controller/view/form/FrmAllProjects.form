@@ -54,11 +54,14 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="653" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="btnRemove" max="32767" attributes="0"/>
-                  <Component id="btnAdd" alignment="1" max="32767" attributes="0"/>
-                  <Component id="btnDetails" alignment="1" max="32767" attributes="0"/>
-                  <Component id="btnTasks" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="btnRemove" max="32767" attributes="0"/>
+                      <Component id="btnAdd" alignment="1" max="32767" attributes="0"/>
+                      <Component id="btnDetails" alignment="1" max="32767" attributes="0"/>
+                      <Component id="btnTasks" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="btnLogout" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="51" max="32767" attributes="0"/>
           </Group>
@@ -68,7 +71,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="btnAdd" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -77,6 +80,8 @@
                       <Component id="btnDetails" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnTasks" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnLogout" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane1" min="-2" pref="386" max="-2" attributes="0"/>
               </Group>
@@ -146,6 +151,11 @@
     <Component class="javax.swing.JButton" name="btnTasks">
       <Properties>
         <Property name="text" type="java.lang.String" value="Tasks"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnLogout">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Log out"/>
       </Properties>
     </Component>
   </SubComponents>
