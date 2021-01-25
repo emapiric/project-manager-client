@@ -57,17 +57,6 @@ public class Communication {
             throw response.getException();
         }
     }
-    
-    public User getUserById(int id) throws Exception {
-        Request request = new Request(Operation.GET_USER_BY_ID,id);
-        sender.send(request);
-        Response response = (Response) receiver.receive();
-        if (response.getException() == null) {
-            return (User) response.getResult();
-        } else {
-            throw response.getException();
-        }
-    }
 
     public List<Project> getAllProjects() throws Exception{
         Request request = new Request(Operation.GET_ALL_PROJECTS,null);
@@ -153,17 +142,6 @@ public class Communication {
         Response response = (Response) receiver.receive();
         if (response.getException() == null) {
             return (List<Task>) response.getResult();
-        } else {
-            throw response.getException();
-        }
-    }
-    
-    public Task getTaskById(int id) throws Exception{
-        Request request = new Request(Operation.GET_TASK_BY_ID,id);
-        sender.send(request);
-        Response response = (Response) receiver.receive();
-        if (response.getException() == null) {
-            return (Task) response.getResult();
         } else {
             throw response.getException();
         }
