@@ -51,9 +51,10 @@ public class ProjectTaskController {
                     projectTask.setTask((Task) frmProjectTask.getInputTask().getValue());
                     projectTask.setAssignee((User) frmProjectTask.getInputAssignee().getValue());
                     projectTask.setStatus((Status) frmProjectTask.getInputStatus().getValue());
+                    Project project = null;
                     switch(formMode) {
                         case FORM_ADD:
-                            Project project = (Project) MainCoordinator.getInstance().getParam(Constants.PARAM_PROJECT);
+                            project = (Project) MainCoordinator.getInstance().getParam(Constants.PARAM_PROJECT);
                             User user = (User) MainCoordinator.getInstance().getParam(Constants.CURRENT_USER);
                             projectTask.setProject(project);
                             projectTask.setAuthor(user);
@@ -61,6 +62,8 @@ public class ProjectTaskController {
                             break;
                         case FORM_VIEW:
                             projectTask.setId(Integer.parseInt(frmProjectTask.getInputId().getValue().toString()));
+                            project = (Project) MainCoordinator.getInstance().getParam(Constants.PARAM_PROJECT);
+                            projectTask.setProject(project);
                             Communication.getInstance().editProjectTask(projectTask);
                             break;
                     }

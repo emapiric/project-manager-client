@@ -41,6 +41,20 @@ public class AllProjectTasksController {
                 MainCoordinator.getInstance().openAddNewProjectTaskForm();
             }
         });
+        frmAllProjectTasks.btnSearchActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    int id = Integer.parseInt(frmAllProjectTasks.getTxtSearch().getText());
+                    Project project = (Project) MainCoordinator.getInstance().getParam(Constants.PARAM_PROJECT);
+                    ProjectTask projectTask = Communication.getInstance().getProjectTaskById(new ProjectTask(id,project));
+                    MainCoordinator.getInstance().addParam(Constants.PARAM_PROJECT_TASK, projectTask);
+                    MainCoordinator.getInstance().openProjectTaskDetailsForm();
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(frmAllProjectTasks, "System can't find the task.", "PROJECT TASK DETAILS", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
         frmAllProjectTasks.btnDetailsActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

@@ -168,6 +168,18 @@ public class Communication {
             throw response.getException();
         }
     }
+
+    public ProjectTask getProjectTaskById(ProjectTask projectTask) throws Exception{
+        Request request = new Request(Operation.GET_PROJECT_TASK_BY_ID, projectTask);
+        sender.send(request);
+        Response response = (Response) receiver.receive();
+        if (response.getException() == null) {
+            return (ProjectTask) response.getResult();
+        } else {
+            throw response.getException();
+        }
+    }
+
     
     
 }
