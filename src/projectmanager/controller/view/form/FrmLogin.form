@@ -51,10 +51,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="192" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="btnSignup" min="-2" pref="118" max="-2" attributes="0"/>
-                              <Component id="btnLogin" min="-2" pref="118" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="btnLogin" min="-2" pref="118" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
@@ -79,9 +76,7 @@
                   <Component id="inputPassword" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                   <Component id="btnLogin" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnSignup" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="23" max="32767" attributes="0"/>
+                  <EmptySpace pref="53" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -100,11 +95,6 @@
         <Component class="javax.swing.JButton" name="btnLogin">
           <Properties>
             <Property name="text" type="java.lang.String" value="Login"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnSignup">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Sign up"/>
           </Properties>
         </Component>
         <Component class="projectmanager.controller.view.component.InputPasswordPanel" name="inputPassword">
