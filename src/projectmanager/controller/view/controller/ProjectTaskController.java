@@ -200,7 +200,8 @@ public class ProjectTaskController {
     }
 
     private void authorize(User currentUser, ProjectTask projectTask) {
-        if (currentUser.getId() != projectTask.getAuthor().getId()) {
+        int currentUserId = currentUser.getId();
+        if (currentUserId != projectTask.getProject().getOwner().getId() && currentUserId != projectTask.getAssignee().getId() && currentUserId != projectTask.getAuthor().getId()) {
             frmProjectTask.getInputAssignee().setEnabled(false);
             frmProjectTask.getInputTask().setEnabled(false);
             frmProjectTask.getInputStatus().setEnabled(false);

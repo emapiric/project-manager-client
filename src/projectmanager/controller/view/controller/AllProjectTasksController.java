@@ -75,6 +75,7 @@ public class AllProjectTasksController {
                 int row = frmAllProjectTasks.getTblTasks().getSelectedRow();
                 if (row>=0) {
                     ProjectTask projectTask = ((ProjectTaskTableModel) frmAllProjectTasks.getTblTasks().getModel()).getProjectTaskAt(row);
+                    if (!authorize(projectTask)) return;
                     try {
                         Communication.getInstance().deleteProjectTask(projectTask);
                         JOptionPane.showMessageDialog(frmAllProjectTasks, "Project task deleted successfully!\n", "Delete project task", JOptionPane.INFORMATION_MESSAGE);
@@ -88,6 +89,7 @@ public class AllProjectTasksController {
                     JOptionPane.showMessageDialog(frmAllProjectTasks, "You must select a task.", "PROJECT TASK DETAILS", JOptionPane.ERROR_MESSAGE);
                 }
             }
+
         });
         frmAllProjectTasks.addWindowListener(new WindowAdapter() {
             @Override
@@ -135,6 +137,17 @@ public class AllProjectTasksController {
             frmAllProjectTasks.getBtnAdd().setEnabled(false);
             frmAllProjectTasks.getBtnRemove().setEnabled(false);
         }
+    }
+    
+    
+    private boolean authorize(ProjectTask projectTask) {
+        User currentUser = (User) MainCoordinator.getInstance().getParam(Constants.CURRENT_USER);
+        int currentUserId = currentUser.getId();
+        if (currentUserId != projectTask.getProject().getOwner().getId() && currentUserId != projectTask.getAssignee().getId() && currentUserId != projectTask.getAuthor().getId()) {
+            JOptionPane.showMessageDialog(frmAllProjectTasks, "You don't have permission to delete this project", "PROJECT DETAILS", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        return true;
     }
 
     
